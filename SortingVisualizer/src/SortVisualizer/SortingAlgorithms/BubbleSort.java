@@ -24,8 +24,10 @@ public class BubbleSort implements Runnable{
     public void sortSlow() {
         int temp = 0;
         boolean swapped = false;
+
         for(int i = 0; i<lineArray.length-1; i++){
             swapped = false;
+
             for(int j = 1; j<lineArray.length-i; j++){
                 if (lineArray[j-1]> lineArray[j]){
                     temp = lineArray[j-1];
@@ -33,7 +35,9 @@ public class BubbleSort implements Runnable{
                     lineArray[j]= temp;
                     swapped = true;
                 }
+
                 panel.drawArray(lineArray);
+
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
@@ -41,6 +45,7 @@ public class BubbleSort implements Runnable{
                 }
 
             }
+            
             if (!swapped) break;
         }
     }

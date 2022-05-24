@@ -32,44 +32,36 @@ public class MergeSort implements Runnable{
 
         int i = 0, j = 0;
 
-        for (i = 0; i < low; i++)                               //copy elements into left subarray
-        {
+        for (i = 0; i < low; i++) {                              //copy elements into left subarray
             L[i] = arr[left + i];
         }
-        for (j = 0; j < high; j++)                              //copy elements into right subarray
-        {
+        for (j = 0; j < high; j++) {                             //copy elements into right subarray
             R[j] = arr[middle + 1 + j];
         }
-
 
         int k = left;                                           //get starting index for sort
         i = 0;                                             //reset loop variables before performing merge
         j = 0;
 
-        while (i < low && j < high)                     //merge the left and right subarrays
-        {
-            if (L[i] <= R[j])
-            {
+        while (i < low && j < high) {                    //merge the left and right subarrays
+            if (L[i] <= R[j]) {
                 arr[k] = L[i];
                 i++;
             }
-            else
-            {
+            else {
                 arr[k] = R[j];
                 j++;
             }
             k++;
         }
 
-        while (i < low)                             //merge the remaining elements from the left subarray
-        {
+        while (i < low) {                            //merge the remaining elements from the left subarray
             arr[k] = L[i];
             i++;
             k++;
         }
 
-        while (j < high)                           //merge the remaining elements from right subarray
-        {
+        while (j < high) {                          //merge the remaining elements from right subarray
             arr[k] = R[j];
             j++;
             k++;
