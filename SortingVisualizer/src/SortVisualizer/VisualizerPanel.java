@@ -26,7 +26,6 @@ public class VisualizerPanel extends JPanel {
         gc.anchor = GridBagConstraints.LAST_LINE_START;
         this.setLayout(gl);
 
-        run("Insertion Sort");
     }
 
     public void drawArray(int[] arr) {
@@ -44,24 +43,24 @@ public class VisualizerPanel extends JPanel {
         this.validate();
     }
 
-    public static int[] createArray() {
-        int[] tmp = new int[150];
+    public static int[] createArray(int amount) {
+        int[] tmp = new int[amount];
         Random rand = new Random();
-        for (int i = 0; i < 150; i++) {
+        for (int i = 0; i < amount; i++) {
             tmp[i] = rand.nextInt(100) + 1;
         }
         return tmp;
     }
 
-    public void run(String type) {
+    public void run(String type, int amount) {
         if(type.equalsIgnoreCase("Bubble Sort"))
-            t = new Thread(new BubbleSort(createArray(), this));
+            t = new Thread(new BubbleSort(createArray(amount), this));
         if (type.equalsIgnoreCase("Merge Sort"))
-            t = new Thread(new MergeSort(createArray(), this));
+            t = new Thread(new MergeSort(createArray(amount), this));
         if (type.equalsIgnoreCase("Heap Sort"))
-            t = new Thread(new HeapSort(createArray(), this));
+            t = new Thread(new HeapSort(createArray(amount), this));
         if (type.equalsIgnoreCase("Insertion Sort"))
-            t = new Thread(new InsertionSort(createArray(), this));
+            t = new Thread(new InsertionSort(createArray(amount), this));
 
         t.start();
 
