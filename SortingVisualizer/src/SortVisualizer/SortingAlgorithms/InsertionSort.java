@@ -23,8 +23,7 @@ public class InsertionSort implements Runnable {
         System.out.println(ms / 1000);
     }
 
-    public void insertionSort(int arr[], int n)
-    {
+    public void insertionSort(int arr[], int n) {
         if (n <= 1) {                               //passes are done
             return;
         }

@@ -45,7 +45,7 @@ public class BubbleSort implements Runnable{
                 }
 
             }
-            
+
             if (!swapped) break;
         }
     }
