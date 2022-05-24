@@ -6,8 +6,6 @@ import java.io.IOException;
 
 public class VisualFrame extends JFrame {
 
-    Logic l;
-
     public VisualFrame() throws IOException {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(new Dimension(1200, 500));

@@ -1,16 +1,24 @@
-package SortVisualizer;
+package SortVisualizer.SortingAlgorithms;
+
+import SortVisualizer.VisualizerPanel;
+
+import java.util.concurrent.TimeUnit;
 
 public class BubbleSort implements Runnable{
 
     private int[] lineArray;
     private VisualizerPanel panel;
+    private Long timeStarted;
 
     public BubbleSort(int[] lineArray, VisualizerPanel panel) {
         this.lineArray = lineArray;
         this.panel = panel;
+        timeStarted = System.nanoTime();
     }
     public void run() {
         sortSlow();
+        double ms = TimeUnit.MILLISECONDS.convert(System.nanoTime() - timeStarted, TimeUnit.NANOSECONDS);
+        System.out.println(ms / 1000);
     }
 
     public void sortSlow() {
