@@ -1,7 +1,6 @@
 package SortVisualizer.SortingAlgorithms;
 
 import SortVisualizer.VisualizerPanel;
-
 import java.util.concurrent.TimeUnit;
 
 public class BubbleSort implements Runnable{
@@ -43,7 +42,6 @@ public class BubbleSort implements Runnable{
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-
             }
 
             if (!swapped) break;

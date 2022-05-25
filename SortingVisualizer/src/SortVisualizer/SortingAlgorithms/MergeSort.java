@@ -1,7 +1,6 @@
 package SortVisualizer.SortingAlgorithms;
 
 import SortVisualizer.VisualizerPanel;
-
 import java.util.concurrent.TimeUnit;
 
 public class MergeSort implements Runnable{
@@ -67,7 +66,6 @@ public class MergeSort implements Runnable{
             k++;
         }
     }
-
 
     void mergeSort(int arr[], int left, int right) {       //helper function that creates the sub cases for sorting
         int middle;
