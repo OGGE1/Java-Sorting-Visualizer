@@ -10,7 +10,7 @@ public class MenuPanel extends JPanel {
     private String[] sortingAlgorithms = {"Bubble Sort", "Heap Sort", "Insertion Sort", "Merge Sort"};
 
     private JComboBox comboBox = new JComboBox(sortingAlgorithms);
-    private JSlider slider = new JSlider(JSlider.HORIZONTAL, 1, 150, 75);
+    private JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 150, 75);
     private JButton startButton = new JButton("Start");
     private VisualizerPanel panel;
 
@@ -20,11 +20,11 @@ public class MenuPanel extends JPanel {
         this.setBackground(new Color(152, 156, 149));
         this.add(new JButton("Knapp Ett"));
         this.slider.setPreferredSize(new Dimension(400, 50));
-        this.slider.setMinimum(1);
+        this.slider.setMinimum(0);
         this.slider.setMaximum(150);
         this.slider.setPaintLabels(true);
         this.slider.setPaintTicks(true);
-        this.slider.setMajorTickSpacing(1);
+        this.slider.setMajorTickSpacing(15);
         this.add(comboBox);
         this.add(slider);
         this.add(startButton);
