@@ -25,6 +25,7 @@ public class MenuPanel extends JPanel {
         this.slider.setPaintLabels(true);
         this.slider.setPaintTicks(true);
         this.slider.setMajorTickSpacing(15);
+        this.slider.setMinorTickSpacing(5);
         this.add(comboBox);
         this.add(slider);
         this.add(startButton);
