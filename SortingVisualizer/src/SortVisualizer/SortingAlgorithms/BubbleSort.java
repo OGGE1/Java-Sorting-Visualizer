@@ -41,7 +41,7 @@ public class BubbleSort implements Runnable{
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
 
             }

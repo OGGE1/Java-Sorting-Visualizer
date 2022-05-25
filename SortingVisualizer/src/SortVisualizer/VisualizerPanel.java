@@ -12,10 +12,10 @@ import java.util.Random;
 
 public class VisualizerPanel extends JPanel {
 
-    GridBagLayout gl = new GridBagLayout();
-    GridBagConstraints gc = new GridBagConstraints();
-    JFrame frame;
-    Thread t;
+    private GridBagLayout gl = new GridBagLayout();
+    private GridBagConstraints gc = new GridBagConstraints();
+    private JFrame frame;
+    private Thread t;
 
     public VisualizerPanel(JFrame frame) throws IOException {
         this.frame = frame;
@@ -43,7 +43,13 @@ public class VisualizerPanel extends JPanel {
         this.validate();
     }
 
-    public static int[] createArray(int amount) {
+    public void clearScreen() {
+        this.removeAll();
+        this.repaint();
+        this.revalidate();
+        this.validate();
+    }
+    public int[] createArray(int amount) {
         int[] tmp = new int[amount];
         Random rand = new Random();
         for (int i = 0; i < amount; i++) {
@@ -63,7 +69,11 @@ public class VisualizerPanel extends JPanel {
             t = new Thread(new InsertionSort(createArray(amount), this));
 
         t.start();
+    }
 
+    public void stopThread() {
+        if (t != null)
+            t.stop();
     }
 
 }

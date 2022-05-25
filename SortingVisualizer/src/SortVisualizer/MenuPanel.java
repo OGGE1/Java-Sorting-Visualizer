@@ -7,18 +7,18 @@ import java.awt.event.ActionListener;
 
 public class MenuPanel extends JPanel {
 
-    private String[] sortingAlgorithms = {"Bubble Sort", "Heap Sort", "Insertion Sort", "Merge Sort"};
+    private final String[] sortingAlgorithms = {"Bubble Sort", "Heap Sort", "Insertion Sort", "Merge Sort"};
 
-    private JComboBox comboBox = new JComboBox(sortingAlgorithms);
-    private JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 150, 75);
-    private JButton startButton = new JButton("Start");
-    private VisualizerPanel panel;
+    private final JComboBox comboBox = new JComboBox(sortingAlgorithms);
+    private final JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 150, 75);
+    private final JButton startButton = new JButton("Start");
+    private final JButton stopButton = new JButton("Stop/Clear");
+    private final VisualizerPanel panel;
 
     public MenuPanel(VisualizerPanel panel) {
         this.panel = panel;
         this.setPreferredSize(new Dimension(1200, 50));
         this.setBackground(new Color(152, 156, 149));
-        this.add(new JButton("Knapp Ett"));
         this.slider.setPreferredSize(new Dimension(400, 50));
         this.slider.setMinimum(0);
         this.slider.setMaximum(150);
@@ -29,6 +29,7 @@ public class MenuPanel extends JPanel {
         this.add(comboBox);
         this.add(slider);
         this.add(startButton);
+        this.add(stopButton);
         this.setVisible(true);
         addActionListeners();
     }
@@ -40,6 +41,15 @@ public class MenuPanel extends JPanel {
                 panel.run(sortingAlgorithms[comboBox.getSelectedIndex()], slider.getValue());
             }
         });
+
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel.stopThread();
+                panel.clearScreen();
+            }
+        });
+
     }
 
 }
