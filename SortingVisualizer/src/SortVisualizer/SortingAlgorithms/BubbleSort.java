@@ -8,10 +8,12 @@ public class BubbleSort implements Runnable{
     private int[] lineArray;
     private VisualizerPanel panel;
     private Long timeStarted;
+    private int sortingSpeed;
 
-    public BubbleSort(int[] lineArray, VisualizerPanel panel) {
+    public BubbleSort(int[] lineArray, VisualizerPanel panel, int sortingSpeed) {
         this.lineArray = lineArray;
         this.panel = panel;
+        this.sortingSpeed = sortingSpeed;
         timeStarted = System.nanoTime();
     }
     public void run() {
@@ -38,7 +40,7 @@ public class BubbleSort implements Runnable{
                 panel.drawArray(lineArray);
 
                 try {
-                    Thread.sleep(10);
+                    Thread.sleep(sortingSpeed);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }

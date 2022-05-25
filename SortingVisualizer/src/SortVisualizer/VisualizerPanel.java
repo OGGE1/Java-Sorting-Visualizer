@@ -19,7 +19,7 @@ public class VisualizerPanel extends JPanel {
 
     public VisualizerPanel(JFrame frame) throws IOException {
         this.frame = frame;
-        this.setPreferredSize(new Dimension(1200, 300));
+        this.setPreferredSize(new Dimension(1920, 980));
         this.setBackground(new Color(176, 230, 135));
         this.setDoubleBuffered(true);
         gc.insets = new Insets(0, 1, 0, 1);
@@ -34,7 +34,7 @@ public class VisualizerPanel extends JPanel {
         for (int i = 0 ; i < arr.length; i++) {
             JPanel tmp = new JPanel();
             tmp.setDoubleBuffered(true);
-            tmp.setPreferredSize(new Dimension(5, arr[i] * 4));
+            tmp.setPreferredSize(new Dimension(5, arr[i] * 8));
             tmp.setBackground(Color.blue);
             this.add(tmp, gc);
         }
@@ -58,15 +58,15 @@ public class VisualizerPanel extends JPanel {
         return tmp;
     }
 
-    public void run(String type, int amount) {
+    public void run(String type, int amount, int sortingSpeed) {
         if(type.equalsIgnoreCase("Bubble Sort"))
-            t = new Thread(new BubbleSort(createArray(amount), this));
+            t = new Thread(new BubbleSort(createArray(amount), this, sortingSpeed));
         if (type.equalsIgnoreCase("Merge Sort"))
-            t = new Thread(new MergeSort(createArray(amount), this));
+            t = new Thread(new MergeSort(createArray(amount), this, sortingSpeed));
         if (type.equalsIgnoreCase("Heap Sort"))
-            t = new Thread(new HeapSort(createArray(amount), this));
+            t = new Thread(new HeapSort(createArray(amount), this, sortingSpeed));
         if (type.equalsIgnoreCase("Insertion Sort"))
-            t = new Thread(new InsertionSort(createArray(amount), this));
+            t = new Thread(new InsertionSort(createArray(amount), this, sortingSpeed));
 
         t.start();
     }

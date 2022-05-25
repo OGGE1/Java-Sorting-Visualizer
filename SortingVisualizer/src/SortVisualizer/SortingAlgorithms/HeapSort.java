@@ -9,10 +9,12 @@ public class HeapSort implements Runnable {
     private int[] arr;
     private VisualizerPanel panel;
     private Long timeStarted;
+    private int sortingSpeed;
 
-    public HeapSort(int[] arr, VisualizerPanel panel) {
+    public HeapSort(int[] arr, VisualizerPanel panel, int sortingSpeed) {
         this.arr = arr;
         this.panel = panel;
+        this.sortingSpeed = sortingSpeed;
         timeStarted = System.nanoTime();
     }
 
@@ -61,7 +63,7 @@ public class HeapSort implements Runnable {
         }
         panel.drawArray(arr);
         try {
-            Thread.sleep(10);
+            Thread.sleep(sortingSpeed);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
