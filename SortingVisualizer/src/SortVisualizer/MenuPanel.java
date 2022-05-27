@@ -8,7 +8,8 @@ import java.util.Hashtable;
 
 public class MenuPanel extends JPanel {
 
-    private final String[] sortingAlgorithms = {"Bubble Sort", "Heap Sort", "Insertion Sort", "Merge Sort"};
+    private final String[] sortingAlgorithms = {"Bubble Sort", "Heap Sort", "Insertion Sort", "Merge Sort",
+            "Quick Sort", "Radix Sort"};
     private final int[] sortingSpeed = {5, 10, 20, 50, 100, 200, 500, 1000};
     private final Hashtable<Integer, JLabel> sortingSpeedLabels = new Hashtable<>();
 
@@ -21,7 +22,7 @@ public class MenuPanel extends JPanel {
 
     public MenuPanel(VisualizerPanel panel) {
         this.panel = panel;
-        this.setPreferredSize(new Dimension(1200, 100));
+        this.setPreferredSize(new Dimension(1680, 100));
         this.setBackground(new Color(152, 156, 149));
         this.entrySlider.setPreferredSize(new Dimension(400, 50));
         this.entrySlider.setMinimum(0);

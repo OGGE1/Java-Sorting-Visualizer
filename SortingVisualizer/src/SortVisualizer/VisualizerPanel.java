@@ -1,9 +1,6 @@
 package SortVisualizer;
 
-import SortVisualizer.SortingAlgorithms.BubbleSort;
-import SortVisualizer.SortingAlgorithms.HeapSort;
-import SortVisualizer.SortingAlgorithms.InsertionSort;
-import SortVisualizer.SortingAlgorithms.MergeSort;
+import SortVisualizer.SortingAlgorithms.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,11 +16,11 @@ public class VisualizerPanel extends JPanel {
 
     public VisualizerPanel(JFrame frame) throws IOException {
         this.frame = frame;
-        this.setPreferredSize(new Dimension(1920, 980));
+        this.setPreferredSize(new Dimension(1680, 950));
         this.setBackground(new Color(176, 230, 135));
         this.setDoubleBuffered(true);
         gc.insets = new Insets(0, 1, 0, 1);
-        gc.anchor = GridBagConstraints.LAST_LINE_START;
+        gc.anchor = GridBagConstraints.SOUTH;
         this.setLayout(gl);
 
     }
@@ -34,7 +31,7 @@ public class VisualizerPanel extends JPanel {
         for (int i = 0 ; i < arr.length; i++) {
             JPanel tmp = new JPanel();
             tmp.setDoubleBuffered(true);
-            tmp.setPreferredSize(new Dimension(5, arr[i] * 8));
+            tmp.setPreferredSize(new Dimension(5, arr[i] * 6));
             tmp.setBackground(Color.blue);
             this.add(tmp, gc);
         }
@@ -67,6 +64,10 @@ public class VisualizerPanel extends JPanel {
             t = new Thread(new HeapSort(createArray(amount), this, sortingSpeed));
         if (type.equalsIgnoreCase("Insertion Sort"))
             t = new Thread(new InsertionSort(createArray(amount), this, sortingSpeed));
+        if (type.equalsIgnoreCase("Quick Sort"))
+            t = new Thread(new QuickSort(createArray(amount), this, sortingSpeed));
+        if (type.equalsIgnoreCase("Radix Sort"))
+            t = new Thread(new RadixSort(createArray(amount), this, sortingSpeed));
 
         t.start();
     }

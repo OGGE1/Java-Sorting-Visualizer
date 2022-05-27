@@ -78,6 +78,7 @@ public class MergeSort implements Runnable{
             mergeSort(arr, middle + 1, right);               //right subarray
 
             merge(arr, left, middle, right);                //merge the two subarrays
+
             panel.drawArray(arr);
             try {
                 Thread.sleep(sortingSpeed);
